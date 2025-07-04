@@ -11,9 +11,9 @@
 
     <section id="income">
         <h2>Income</h2>
-        <label>Monthly Salary: <input type="number" id="salary" value="0"></label>
-        <label>Spouse Salary: <input type="number" id="spouseSalary" value="0"></label>
-        <label>Side Gig: <input type="number" id="sideGigSalary" value="0"></label>
+        <label>Monthly Salary: <input type="number" id="salary" placeholder="0"></label>
+        <label>Spouse Salary: <input type="number" id="spouseSalary" placeholder="0"></label>
+        <label>Side Gig: <input type="number" id="sideGigSalary" placeholder="0"></label>
         <label>Stock Dividends: <input type="number" id="stockDividends" value="0" readonly></label>
         <label>Property/Business Income: <input type="number" id="propertyIncome" value="0" readonly></label>
         <label>Total Passive Income: <input type="number" id="totalPassiveIncome" value="0" readonly></label>
@@ -62,7 +62,7 @@
         </tr>
         <script>
             for (let i = 0; i < 10; i++) {
-                document.write("<tr><td><input type='text'></td><td><input type='number' class='dpInput' value='0'></td><td><input type='number' class='cashFlowInput' value='0'></td></tr>");
+                document.write("<tr><td><input type='text'></td><td><input type='number' class='dpInput' placeholder='0'></td><td><input type='number' class='cashFlowInput' placeholder='0'></td></tr>");
             }
         </script>
     </table>
