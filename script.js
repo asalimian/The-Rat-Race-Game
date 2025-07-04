@@ -130,35 +130,35 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Calculate Stock Dividends
         let stockDividends = stockBQty * 0.1;
-        document.getElementById("stockDividends").value = stockDividends;
+        document.getElementById("stockDividends").value = stockDividends.toFixed(2);
 
         // Calculate Property/Business Income (Sum of Column 3 in Properties Table)
         document.querySelectorAll(".cashFlowInput").forEach(input => {
             propertyIncome += parseFloat(input.value) || 0;
         });
-        document.getElementById("propertyIncome").value = propertyIncome;
+        document.getElementById("propertyIncome").value = propertyIncome.toFixed(2);
 
         // Total Passive Income
         let totalPassiveIncome = stockDividends + propertyIncome;
-        document.getElementById("totalPassiveIncome").value = totalPassiveIncome;
+        document.getElementById("totalPassiveIncome").value = totalPassiveIncome.toFixed(2);
 
         // Total Income
         let totalIncome = salary + spouseSalary + sideGigSalary + totalPassiveIncome;
-        document.getElementById("totalIncome").value = totalIncome;
+        document.getElementById("totalIncome").value = totalIncome.toFixed(2);
 
         // Get Expenses
         let taxes = parseFloat(document.getElementById("taxes").value) || 0;
         let mortgage = parseFloat(document.getElementById("mortgage").value) || 0;
         let schoolLoanAmount = parseFloat(document.getElementById("schoolLoanAmount").value) || 0;
         let schoolLoanPayment = schoolLoanAmount * 0.005;
-        document.getElementById("schoolLoanPayment").value = schoolLoanPayment;
+        document.getElementById("schoolLoanPayment").value = schoolLoanPayment.toFixed(2);
 
         let carLoan = parseFloat(document.getElementById("carLoan").value) || 0;
         let otherExpenses = parseFloat(document.getElementById("otherExpenses").value) || 0;
         let children = parseInt(document.getElementById("children").value) || 0;
         let costPerChild = parseFloat(document.getElementById("costPerChild").value) || 0;
         let totalChildExpenses = children * costPerChild;
-        document.getElementById("totalChildExpenses").value = totalChildExpenses;
+        document.getElementById("totalChildExpenses").value = totalChildExpenses.toFixed(2);
 
         let personalLoanAmount = parseFloat(document.getElementById("personalLoan").value) || 0;
         let personalLoanPayment = personalLoanAmount * 0.1;
@@ -166,18 +166,18 @@ document.addEventListener("DOMContentLoaded", function () {
         
         let businessLoanAmount = parseFloat(document.getElementById("businessLoan").value) || 0;
         let businessLoanPayment = businessLoanAmount * 0.005;
-        document.getElementById("businessLoanPayment").value = businessLoanPayment;
+        document.getElementById("businessLoanPayment").value = businessLoanPayment.toFixed(2);
 
         // Total Expenses
         let totalExpenses = taxes + mortgage + schoolLoanPayment + carLoan + otherExpenses + totalChildExpenses + personalLoanPayment + businessLoanPayment;
-        document.getElementById("totalExpenses").value = totalExpenses;
+        document.getElementById("totalExpenses").value = totalExpenses.toFixed(2);
 
         // Cash Flow Calculation
         let totalCashFlow = totalIncome - totalExpenses;
-        document.getElementById("totalCashFlow").value = totalCashFlow;
+        document.getElementById("totalCashFlow").value = totalCashFlow.toFixed(2);
 
         // Update Cash on Hand
-        document.getElementById("cashOnHand").value = cashOnHand;
+        document.getElementById("cashOnHand").value = cashOnHand.toFixed(2);
 
         // Save to localStorage after calculations
         saveToLocalStorage();
@@ -186,7 +186,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Function to update cash on hand based on Properties and Businesses table changes (Removed logic for cashOnHand update here)
     function updateCashOnHand() {
         // The logic for adjusting cashOnHand based on DP/Initial Investment is removed.
-        document.getElementById("cashOnHand").value = cashOnHand;
+        document.getElementById("cashOnHand").value = cashOnHand.toFixed(2);
         saveToLocalStorage();
     }
 
@@ -225,7 +225,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("addMoney").addEventListener("click", function () {
         let amount = parseFloat(prompt("Enter amount to add:")) || 0;
         cashOnHand += amount;
-        document.getElementById("cashOnHand").value = cashOnHand;
+        document.getElementById("cashOnHand").value = cashOnHand.toFixed(2);
         saveToLocalStorage();
     });
 
@@ -233,7 +233,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("takeMoney").addEventListener("click", function () {
         let amount = parseFloat(prompt("Enter amount to take away:")) || 0;
         cashOnHand -= amount;
-        document.getElementById("cashOnHand").value = cashOnHand;
+        document.getElementById("cashOnHand").value = cashOnHand.toFixed(2);
         saveToLocalStorage();
     });
 
@@ -278,7 +278,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let stockQty = document.getElementById(`stock${stockType}Qty`);
         if (parseInt(stockQty.value) >= quantity) {
             cashOnHand += totalSale;
-            document.getElementById("cashOnHand").value = cashOnHand;
+            document.getElementById("cashOnHand").value = cashOnHand.toFixed(2);
             stockQty.value = parseInt(stockQty.value) - quantity;
             // After selling stock, update calculations to refresh the stock dividends
             updateCalculations();
@@ -297,7 +297,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (cashOnHand >= totalCost) {
                 cashOnHand -= totalCost;
-                document.getElementById("cashOnHand").value = cashOnHand;
+                document.getElementById("cashOnHand").value = cashOnHand.toFixed(2);
                 document.getElementById("goldQty").value = parseInt(document.getElementById("goldQty").value) + quantity;
                 if(currentCPC!=0){
                     document.getElementById("goldCost").value = ((parseInt(document.getElementById("goldCost").value))+ costPerCoin)/2;

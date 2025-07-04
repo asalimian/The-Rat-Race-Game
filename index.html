@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Income Statement</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/kelpui@0/css/kelp.css">
+    <script type="module" src="https://cdn.jsdelivr.net/npm/kelpui@0/js/kelp.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/kelpui@0/js/dark-mode-auto.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1 class="center">Income Statement</h1>
-
+    <kelp-toc list-class="list-inline callout"></kelp-toc>
     <section id="income">
         <h2>Income</h2>
         <label>Monthly Salary: <input type="number" id="salary" placeholder="0"></label>
@@ -46,9 +49,11 @@
         <h2>Cash Flow</h2>
         <label>Total Cash Flow: <input type="number" id="totalCashFlow" value="0" readonly></label>
         <label>Cash on Hand: <input type="number" id="cashOnHand" value="0" readonly></label>
-        <button id="getPaid">Get Paid</button>
-        <button id="addMoney">Add Money</button>
-        <button id="takeMoney">Take Away Money</button>
+        <div class="justify-center cluster">
+            <button id="getPaid" class="primary">Get Paid</button>
+            <button id="addMoney" class="success">Add Money</button>
+            <button id="takeMoney" class="danger">Take Away Money</button>
+        </div>
     </section>
 
     <hr>
@@ -87,8 +92,10 @@
             <td><input type="number" id="stockBCost" value="0"></td>
         </tr>
     </table>
-    <button id="buyStock">Buy Stock</button>
-    <button id="sellStock">Sell Stock</button>
+    <div class="justify-center cluster">
+        <button id="buyStock" class="success">Buy Stock</button>
+        <button id="sellStock" class="danger">Sell Stock</button>
+	</div>
 
     <hr>
 
@@ -105,8 +112,10 @@
             <td><input type="number" id="goldCost" value="0"></td>
         </tr>
     </table>
-    <button id="buyGold">Buy Gold</button>
-    <button id="sellGold">Sell Gold</button>
+    <div class="justify-center cluster">
+        <button id="buyGold" class="success">Buy Gold</button>
+        <button id="sellGold" class="danger">Sell Gold</button>
+    </div>
 
     <hr>
 
@@ -123,8 +132,10 @@
         <td><input type="number" id="tradingCardsCost" value="0"></td>
     </tr>
 </table>
-<button id="buyTradingCards">Buy Trading Cards</button>
-<button id="sellTradingCards">Sell Trading Cards</button>
+<div class="justify-center cluster">
+    <button id="buyTradingCards" class="success">Buy Trading Cards</button>
+    <button id="sellTradingCards" class="danger">Sell Trading Cards</button>
+</div>
 
 <script src="script.js"></script>
 </body>
