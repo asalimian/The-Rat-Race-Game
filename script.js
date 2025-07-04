@@ -374,10 +374,11 @@ document.getElementById("sellTradingCards").addEventListener("click", function (
  });
 
     // Optional: Add a clear data button
-    window.clearSavedData = function() {
-        if (confirm("Are you sure you want to clear all saved data?")) {
+    document.getElementById("clearCalculator").addEventListener("click", function () {
+        if (confirm("Are you sure you want to clear all data?")) {
             localStorage.removeItem('incomeStatementData');
             location.reload();
+            document.getElementById('myform').reset();
         }
-    };
+    });
 });
